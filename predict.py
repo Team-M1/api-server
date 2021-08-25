@@ -17,7 +17,7 @@ bidirectional = True
 dropout = 0.2
 
 model = GRUNet(pretrained_model, hidden_dim, output_dim, n_layers, bidirectional, dropout)
-model.load_state_dict(torch.load('model.pt'))
+model.load_state_dict(torch.load('model.pt', map_location=torch.device('cpu')))
 model.eval()
 
 def predict(text):
