@@ -22,7 +22,7 @@ model.eval()
 
 def predict(text):
     tokens = tokenizer.tokenize(text)
-    tokens = tokens[:max_input_length-2]
+    tokens = tokens[:max_input_length]
     indexed = tokenizer.convert_tokens_to_ids(tokens)
     tensor = torch.LongTensor(indexed)
     tensor = tensor.unsqueeze(0)
