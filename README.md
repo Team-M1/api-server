@@ -8,7 +8,7 @@ CLI에서 `uvicorn main:app` 명령어를 사용하여 localhost 에서 서버�
 
 ## API
 
-[Wiki](https://github.com/Team-M1/korean-malicious-comments-api/wiki/1%EC%A3%BC%EC%B0%A8-%EB%AF%B8%EC%85%98)를 참고하시기 바랍니다.
+[Wiki](https://github.com/Team-M1/korean-malicious-comments-api/wiki)를 참고하시기 바랍니다.
 
 ## heroku
 
