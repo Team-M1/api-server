@@ -1,36 +1,19 @@
+import os
+import pathlib
 import torch
-from transformers import ElectraModel
+from transformers import ElectraForSequenceClassification, ElectraTokenizer
 
-from .tokenizer import KoCharElectraTokenizer
-from .model import GRUNet
+# kocharelectra tokenizer
+# from tokenizer.tokenization_kocharelectra import KoCharElectraTokenizer
 
-max_input_length = 172
+CURRENT_PATH = pathlib.Path().resolve()
+MODEL_PATH = os.path.join(CURRENT_PATH, 'model/model')
 
-pretrained_model = ElectraModel.from_pretrained(
-    "monologg/kocharelectra-small-discriminator"
-)
-tokenizer = KoCharElectraTokenizer.from_pretrained(
-    "monologg/kocharelectra-small-discriminator"
-)
-
-hidden_dim = 256
-output_dim = 1
-n_layers = 2
-bidirectional = True
-dropout = 0.2
-
-model = GRUNet(
-    pretrained_model, hidden_dim, output_dim, n_layers, bidirectional, dropout
-)
-model.load_state_dict(torch.load("./model/model.pt", map_location=torch.device("cpu")))
-model.eval()
-
+model = ElectraForSequenceClassification.from_pretrained(MODEL_PATH)
+tokenizer = ElectraTokenizer.from_pretrained('monologg/koelectra-small-v3-discriminator')
 
 def predict(text):
-    tokens = tokenizer.tokenize(text)
-    tokens = tokens[:max_input_length]
-    indexed = tokenizer.convert_tokens_to_ids(tokens)
-    tensor = torch.LongTensor(indexed)
-    tensor = tensor.unsqueeze(0)
-    prediction = torch.sigmoid(model(tensor))
-    return prediction.item()
+    with torch.no_grad():
+        tokens = tokenizer(text, padding="max_length", truncation=True, return_tensors="pt")
+        output = model(**tokens)
+        return torch.argmax(output.logits, dim=1).item()
