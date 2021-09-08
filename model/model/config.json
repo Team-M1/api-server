@@ -1,5 +1,5 @@
 {
-  "_name_or_path": "monologg/koelectra-small-v3-discriminator",
+  "_name_or_path": "monologg/kocharelectra-small-discriminator",
   "architectures": [
     "ElectraForSequenceClassification"
   ],
@@ -36,5 +36,5 @@
   "torch_dtype": "float32",
   "transformers_version": "4.10.0",
   "type_vocab_size": 2,
-  "vocab_size": 35000
+  "vocab_size": 11568
 }
