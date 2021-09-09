@@ -13,7 +13,7 @@ tokenizer = KoCharElectraTokenizer.from_pretrained(
 model.eval()
 
 
-def predict(text: str):
+async def predict(text: str):
     with torch.no_grad():
         tokens = tokenizer(
             text, padding="max_length", truncation=True, return_tensors="pt"

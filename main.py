@@ -12,7 +12,8 @@ async def root():
 
 
 @app.get("/predict/{text}")
-async def read_item(text: str):
+async def inference(text: str):
     d = {"text": text}
-    d.update(predict(text))
+    pred = await predict(text)
+    d.update(pred)
     return d
