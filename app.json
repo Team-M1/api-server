@@ -1,9 +1,10 @@
 {
     "name": "한국어 악플 탐지 API 서버",
-    "description": "한국어 악플 탐지 API 서버",
+    "description": "한국어 문장으로 된 요청을 받으면 해당 문장의 악플 레이블을 예측해서 돌려주는 API입니다.",
     "repository": "https://github.com/Team-M1/korean-malicious-comments-api",
     "keywords": [
         "python",
         "korean"
-    ]
+    ],
+    "success_url": "/docs"
 }
