@@ -1,0 +1,9 @@
+{
+    "name": "한국어 악플 탐지 API 서버",
+    "description": "한국어 악플 탐지 API 서버",
+    "repository": "https://github.com/Team-M1/korean-malicious-comments-api",
+    "keywords": [
+        "python",
+        "korean"
+    ]
+}
