@@ -50,8 +50,26 @@ uvicorn main:app
 
 사용한 데이터는 [Team-M1/community-comments-csv-data](https://github.com/Team-M1/community-comments-csv-data) 여기서 확인하실 수 있습니다.
 
-## Reference
+## 참고
 
 <https://fastapi.tiangolo.com/>
 
 <https://github.com/tiangolo/uvicorn-gunicorn-docker>
+
+</br>
+
+### 참고한 기존의 서비스
+
+<https://github.com/hjh010501/appropriate-filetering>
+
+<https://github.com/strutive07/SoongsilBERT-base-beep-deploy>
+
+![graph](https://i.imgur.com/ueeQn6v.png)
+
+`kmca`와 참고한 기존의 서비스들의 자체 성능 테스트 결과 그래프입니다.
+
+[locust](https://locust.io/)로 테스트하였으며,
+
+테스트 방법은 간단하게 사용자 5명이 1~3초 간격으로 `POST`요청을 보내는 것으로 했습니다.
+
+응답실패란 보낸 요청에 대해 돌아온 응답의 status code가 400이상인 경우를 의미합니다.
