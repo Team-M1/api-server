@@ -66,7 +66,7 @@ uvicorn main:app
 
 ![graph](https://i.imgur.com/ueeQn6v.png)
 
-`kmca`와 참고한 기존의 서비스들의 자체 성능 테스트 결과 그래프입니다.
+`kmca`와 참고한 기존의 서비스들의 응답 속도 테스트 결과 그래프입니다.
 
 [locust](https://locust.io/)로 테스트하였으며,
 
