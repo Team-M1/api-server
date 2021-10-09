@@ -21,6 +21,7 @@ async def root():
 
 @app.get("/predict/{text}")
 async def inference_get(text: str):
+    """'/predict/{text}'에 대한 GET 요청에 대응하는 함수"""
     d = {"text": text}
     pred = await predict(text)
     d.update(pred)
@@ -29,6 +30,7 @@ async def inference_get(text: str):
 
 @app.post("/predict")
 async def inference_post(text: Text):
+    """'/predict'에 대한 POST 요청에 대응하는 함수"""
     d = {"text": text.text}
     pred = await predict(text.text)
     d.update(pred)
